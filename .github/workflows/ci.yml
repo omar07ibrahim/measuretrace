@@ -79,7 +79,7 @@ jobs:
           build/clean-venv/bin/python -m pip install --no-index build/one/measuretrace-*.whl
           build/clean-venv/bin/measuretrace convert 1 mi km --places 6
       - name: Upload independently reproducible packages
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: measuretrace-packages-${{ github.event.pull_request.head.sha || github.sha }}
           path: build/one/
@@ -113,7 +113,7 @@ jobs:
         run: |
           python -m tools.verify_evidence             evidence/staged/manifest.json             --root evidence/staged             --expect-ci-sha "${{ github.event.pull_request.head.sha || github.sha }}"
       - name: Upload evidence for review before repository adoption
-        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
         with:
           name: measuretrace-evidence-${{ github.event.pull_request.head.sha || github.sha }}
           path: evidence/staged/
